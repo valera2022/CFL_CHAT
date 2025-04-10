@@ -27,10 +27,14 @@ console.log(io)
     io.on("connection",(socket)=>{
         console.log("somebody is online", socket.id)
 
-   
+     
     
         socket.on("disconnect", ()=>{
             console.log( "somebody got disconnected", socket.id)
+        })
+
+        socket.on("room",(data)=>{
+            console.log(data)
         })
        
     })
