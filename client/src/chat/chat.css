@@ -1,0 +1,15 @@
+
+#chat-container{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+#body{
+
+    width: 165px;
+    height: 200px;
+    border: solid, gray;
+    background-color: gray;
+}
