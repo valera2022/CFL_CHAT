@@ -48,6 +48,10 @@ let io = new Server(server,{
             console.log(data)
             socket.join(data)
         })
+
+        socket.on("sent",(data)=>{
+            socket.to(data.room).emit("got-message", data)
+        })
        
     })
 

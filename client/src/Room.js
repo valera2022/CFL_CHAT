@@ -25,7 +25,7 @@ export default function Room({socket}) {
         <input type="text" placeholder='User' onChange={(event)=> setUser(event.target.value)}/>
         <input type='text' placeholder='room' onChange={(event)=> setRoom(event.target.value)}/>
         <button onClick={joinChat}>Open Chat</button>
-        {show? <Chat/> : null}
+        {show? <Chat socket={socket} room={room} user={user}/> : null}
     </div>
   )
 }
