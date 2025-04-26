@@ -22,11 +22,7 @@ export default function Chat({room, user, socket}) {
         
     }
 
-    useEffect(()=>{
-      socket.on("got-message",(data)=>{
-         console.log(data)
-      })
-    },[socket])
+   
     
   return (
     <div id="chat-container">
