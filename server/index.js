@@ -32,16 +32,16 @@ let io = new Server(server,{
         socket.on("disconnect", (reason,details)=>{
             console.log( "somebody got disconnected", socket.id)
              // the reason of the disconnection, for example "transport error"
-                  console.log(reason);
+        //           console.log(reason);
 
-            // the low-level reason of the disconnection, for example "xhr post error"
-                 console.log(details);
+        //     // the low-level reason of the disconnection, for example "xhr post error"
+        //          console.log(details);
 
-         // some additional description, for example the status code of the HTTP response
-                    console.log(details.description);
+        //  // some additional description, for example the status code of the HTTP response
+        //             console.log(details.description);
 
-         // some additional context, for example the XMLHttpRequest object
-                console.log(details.context);
+        //  // some additional context, for example the XMLHttpRequest object
+        //         console.log(details.context);
         })
 
         socket.on("room",(data)=>{
