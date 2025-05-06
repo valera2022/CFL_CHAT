@@ -31,17 +31,7 @@ let io = new Server(server,{
     
         socket.on("disconnect", (reason,details)=>{
             console.log( "somebody got disconnected", socket.id)
-             // the reason of the disconnection, for example "transport error"
-        //           console.log(reason);
-
-        //     // the low-level reason of the disconnection, for example "xhr post error"
-        //          console.log(details);
-
-        //  // some additional description, for example the status code of the HTTP response
-        //             console.log(details.description);
-
-        //  // some additional context, for example the XMLHttpRequest object
-        //         console.log(details.context);
+     
         })
 
         socket.on("room",(data)=>{
@@ -50,11 +40,13 @@ let io = new Server(server,{
         })
 
         socket.on("sent",(data)=>{
-            socket.to(data.room).emit("got-message", data)
+            io.to(data.room).emit("got-message", data)
+       
         })
        
     })
-
+  
+   
 
 
 server.listen("3001",()=>{

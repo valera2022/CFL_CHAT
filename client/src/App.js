@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { io } from 'socket.io-client';
-import Room from './Room';
-import { useEffect } from 'react';
+import Room from './room/Room';
+import { useEffect, useState } from 'react';
 
 let socket = io("http://localhost:3001", {
   withCredentials: true})
@@ -11,16 +11,32 @@ console.log(socket)
 
 
 function App() {
+  const [room,setRoom] = useState("")
+  const [user,setUser] = useState("")
 
-  useEffect(()=>{
-    socket.on("got-message",(data)=>{
-       console.log(data)
-    })
-  },[socket])
+   
+  function joinChat(){
+    console.log(user)
+    console.log(room)
+    const roomData = {
+        user: user,
+        room: user,
+    }
+    if(user !== "" && room !== ""){
+       socket.emit("room",room )
+       setShow(true)
+    }
+}
+
+  // useEffect(()=>{
+  //   socket.on("got-message",(data)=>{
+  //      console.log(data)
+  //   })
+  // },[socket])
  
   return (
     <div className="App">
-       <Room socket={socket}/>
+       <Room socket={socket} joinChat={joinChat}/>
     </div>
   );
   

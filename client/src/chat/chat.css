@@ -1,15 +1,65 @@
 
-#chat-container{
+.chat-container{
     display: flex;
     flex-direction:column;
     justify-content: center;
     align-items: center;
+  
 }
 
-#body{
-
+.body{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
     width: 165px;
     height: 200px;
     border: solid, gray;
+    border-width: 1px;
     background-color: gray;
+    border-radius: 10px;
+    background-color: cyan ;
+    overflow:auto;
+    
+}   
+
+.text-box{
+    border-radius: 5px;
+    border-width: 1px;
+    height: 30px;
+   
+}
+
+.button-send{
+    height: 32px;
+    border-radius:5px ;
+    animation: ease-in 0s;
+    background-color: rgb(53, 233, 53);
+}
+
+.chat-title{
+
+}
+
+.chat-text{
+    font-size: 40%;
+    font-weight: 200;
+    color: aliceblue;
+   
+    /* margin-right: 100px; */
+    /* margin-bottom: 100px; */
+}
+
+.chat-bobble{
+    background-color: darkblue;
+    border-radius: 10px;
+    width: 40%;
+    margin-bottom: 2px;
+
+}
+
+.user-display{
+    color: antiquewhite;
+    margin:0%;
+    font-size: 10%;
 }
