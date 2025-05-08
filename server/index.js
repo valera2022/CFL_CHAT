@@ -35,11 +35,12 @@ let io = new Server(server,{
         })
 
         socket.on("room",(data)=>{
-            console.log(data)
+            console.log("room", data)
             socket.join(data)
         })
 
         socket.on("sent",(data)=>{
+            console.log(data)
             io.to(data.room).emit("got-message", data)
        
         })

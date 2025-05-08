@@ -6,6 +6,7 @@ export default function Chat({room, user, socket}) {
     const [messageData, setMessagesData] = useState([])
 
  async function handleClick (){
+           console.log(room,user)
           let data = {
               room: room,
               user: user,

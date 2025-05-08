@@ -4,6 +4,7 @@
     flex-direction:column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
   
 }
 
@@ -12,14 +13,15 @@
     justify-content: start;
     align-items: start;
     flex-direction: column;
-    width: 165px;
-    height: 200px;
+    width: 40%;
+    height: 80%;
     border: solid, gray;
     border-width: 1px;
     background-color: gray;
     border-radius: 10px;
     background-color: cyan ;
     overflow:auto;
+    box-shadow: 10px, 10px , black;
     
 }   
 
@@ -42,9 +44,10 @@
 }
 
 .chat-text{
-    font-size: 40%;
-    font-weight: 200;
+    font-size: 70%;
+    font-weight: 600;
     color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
    
     /* margin-right: 100px; */
     /* margin-bottom: 100px; */
@@ -55,6 +58,7 @@
     border-radius: 10px;
     width: 40%;
     margin-bottom: 2px;
+    margin-top: 5px;
 
 }
 

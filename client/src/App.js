@@ -3,6 +3,7 @@ import './App.css';
 import { io } from 'socket.io-client';
 import Room from './room/Room';
 import { useEffect, useState } from 'react';
+import Chat from "./chat/Chat.js"
 
 let socket = io("http://localhost:3001", {
   withCredentials: true})
@@ -13,17 +14,20 @@ console.log(socket)
 function App() {
   const [room,setRoom] = useState("")
   const [user,setUser] = useState("")
+  const [show,setShow] = useState(false)
 
    
-  function joinChat(){
-    console.log(user)
-    console.log(room)
-    const roomData = {
-        user: user,
-        room: user,
-    }
-    if(user !== "" && room !== ""){
-       socket.emit("room",room )
+  function joinChat(userInput, roomInput){
+    // console.log(user)
+    // console.log(room)
+    // const roomData = {
+    //     user: user,
+    //     room: user,
+    // }
+    if(userInput !== "" && roomInput !== ""){
+       socket.emit("room",roomInput )
+       setRoom(roomInput)
+       setUser(userInput)
        setShow(true)
     }
 }
@@ -36,7 +40,8 @@ function App() {
  
   return (
     <div className="App">
-       <Room socket={socket} joinChat={joinChat}/>
+        {show ? <Chat socket={socket} user={user} room={room}/> : <Room socket={socket} joinChat={joinChat}/>}
+   
     </div>
   );
   
