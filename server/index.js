@@ -1,8 +1,10 @@
-const express = require("express")
-const http = require("http")
+import express from "express"
+import http from "http"
+
 // const io = require("socket.io")
-const cors = require("cors")
-const {Server} = require("socket.io")
+import cors from "cors"
+import {Server} from "socket.io"
+
 
 let app = express()
 app.use(cors({
@@ -24,7 +26,7 @@ let io = new Server(server,{
 
 
 
-    io.on("connection",(socket)=>{
+    io.on("connection", (socket)=>{
         console.log("somebody is online", socket.id)
 
      
