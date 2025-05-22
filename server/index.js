@@ -4,6 +4,7 @@ import http from "http"
 // const io = require("socket.io")
 import cors from "cors"
 import {Server} from "socket.io"
+import { verify } from "./utils/auth.js"
 
 
 let app = express()
@@ -13,6 +14,10 @@ app.use(cors({
         credentials: true
 }))
 let server = http.createServer(app)
+
+app.post(verify,"/LogIn",()=>{
+     
+})
 
 let io = new Server(server,{
      cors:{
