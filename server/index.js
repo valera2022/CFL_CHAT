@@ -4,7 +4,7 @@ import http from "http"
 // const io = require("socket.io")
 import cors from "cors"
 import {Server} from "socket.io"
-import { verify } from "./utils/auth.js"
+import { createToken, verify } from "./utils/auth.js"
 
 
 let app = express()
@@ -15,7 +15,17 @@ app.use(cors({
 }))
 let server = http.createServer(app)
 
-app.post(verify,"/LogIn",()=>{
+app.post("/LogIn", async (req, res)=>{
+    const {username, password} = req.body
+
+
+    try{
+        let token  =  createToken(username, password)
+        res.json(token)
+    }
+    catch (error){
+         res.status(401).send(`error:${error.error}`)
+    }
      
 })
 

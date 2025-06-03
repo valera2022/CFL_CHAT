@@ -17,18 +17,21 @@ const User = sequelize.define("User",{
      password: DataTypes.STRING
 })
 
-const jane = User.build({ username: 'Jane', password:123 });
-console.log(jane instanceof User); // true
-console.log(jane.username); // "Jane"
+const Jane = User.build({ username: 'Jane', password:123 });
+console.log(Jane instanceof User); // true
+console.log(Jane.username); // "Jane"
 
 console.log("defining users model:" ,User)
 
-const message = sequelize.define("Message",{
+const Message = sequelize.define("Message",{
       text: DataTypes.STRING,
       time: DataTypes.DATE,
     
 
 })
+const hello = Message.build({ text: 'hello world', time: Date.now });
+console.log( hello instanceof Message);
+console.log(hello.text)
 
 
 export const createUser = async ({username, password})=>{
@@ -40,8 +43,8 @@ export const createUser = async ({username, password})=>{
      
 }
 
-User.hasMany(message)
-message.belongsTo(User)
+User.hasMany(Message)
+Message.belongsTo(User)
 
 await sequelize.sync({force: true})
 

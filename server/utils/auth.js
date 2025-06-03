@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken"
 let secret = "this-is-super-secret"
-export const createToken = (pss)=>{
+
+export const createToken = (tokenData)=>{
        jwt.sign(tokenData, secret)
 }
 
